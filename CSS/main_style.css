@@ -1,0 +1,14 @@
+/* colorblind safe color palette from colorbrewer2.org.
+light pink - #fde0dd
+hot pink - #c51ba
+indogo - #756bb1
+*/
+body {
+  background-color: #fde0dd;
+  color: #c51b8a;
+  text-align: center;
+}
+
+h1 {
+  color: #756bb1;
+}
