@@ -4,11 +4,36 @@ hot pink - #c51ba
 indogo - #756bb1
 */
 body {
-  background-color: #fde0dd;
+  background-color: #fa9fb5;
   color: #c51b8a;
   text-align: center;
 }
 
 h1 {
-  color: #756bb1;
+  color: #e7e1ef;
+}
+#body-container {
+  background-color: #e7e1ef;
+  max-width: 1000px;
+  margin:auto;
+  min-height: 100vh;
+  border: 2px solid #e7e1ef;
+  border-radius: 25px;
+  overflow:hidden;
+}
+#header {
+  background-color: #c51b8a;
+}
+#profile-picture {
+  float:left;
+}
+ #welcome-text {
+   padding-top:25px;
+   font-size:25px;
+ }
+#research-interests {
+  text-align:left;
+  font-size:25px;
+  position:relative;
+  left:50px;
 }
