@@ -7,15 +7,18 @@ body {
   background-color: #fa9fb5;
   color: #c51b8a;
   text-align: center;
+  margin: 0;
 }
 
 h1 {
   color: #e7e1ef;
+  padding: 5px;
+  margin: 0;
 }
 #body-container {
   background-color: #e7e1ef;
   max-width: 1000px;
-  margin:auto;
+  margin: auto;
   min-height: 100vh;
   border: 2px solid #e7e1ef;
   border-radius: 25px;
