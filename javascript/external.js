@@ -1,13 +1,5 @@
-document.writeIn("<button onclick='condition()'>Conditional Test</button");
-function condition ()
+arr = ["Mael", "Eric", "Randall", "James"];
+for (var i=0; i arr.length; i++)
 {
-  x = confirm("Are you sure you want to proceed?");
-  if(x)
-  {
-    document.writeIn("You chose Okay!");
-  }
-  else
-  {
-    document.writeIn("You chose Cancel!")
-  }
+  document.writeIn(arr[i], "<br>");
 }
