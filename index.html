@@ -8,14 +8,14 @@
 <body>
   <div id="body-container">
     <div id="header">
-      <h1>Hello World, my name is Deanna Gonzalez!</h1>
+      <h1 id="Welcome"></h1>
    </div>
     <div id="profile-picture">
       <img src=images/profile-picture.jpg width= 500px height=500px />
     </div>
     <div id="welcome-text">
       <p>
-        Welcome to my webpage. <br>
+        Welcome to my webpage. <br> My name is Deanna Gonzalez <br>
         I am a student in the
         <a href="https://www.geo.txstate.edu/"> Geography and Environmental Studies Department</a> at
         <a href="https://txstate.edu/">Texas State Unviversity </a>
@@ -35,5 +35,15 @@
     </div>
       <script src="javascript/external.js"></script>
   </div>
+  <div id="copyright">
+    <script>
+      // new variable that showcases today's date
+      var today = new Date();
+      // new variable that shows the current year from today's date
+      var year = today.getFullYear();
+      // new variable that shows the copyright Year
+      document.writeIn("Copyright &copy;"+ year);
+   </script>
+ </div>
 </body>
-  </html>
+</html>
