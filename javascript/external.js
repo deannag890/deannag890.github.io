@@ -7,6 +7,8 @@ var webmaps =
   "Map of Kayak and hiking trails developed by Texas Parks and Wildlife.",]
   ["Bike routes in Austin, TX", "https://austin.maps.arcgis.com/apps/webappviewer/index.html?id=c7fecf32a2d946fabdf062285d58d40c",
   "Highly detailed and informative bike route map of Austin's Metroolitian area",]
+  ["Campus Map of Texas State University", "https://map.concept3d.com/?id=308#!ct/18453,19314,49975?s/",
+"This map is very simple, efficient, and straight-forward."]
 ];
 function welcome()
 {
@@ -25,9 +27,15 @@ function webmap_table()
     document.write("<tr>");
     for (var column=0; column < webmaps[0].length; column++)
     {
-      document.write("<td>" + webmaps[row][column] + "</td>");
+      if (row % 2 == 0)
+      {
+      document.write("<td>" + webmaps[0][1] + "</td>");
     }
-    document.write("</tr");
+    else
+    {
+      document.write("<td>" + webmaps[1][0] + "</td">);
+    }
+    document.write("</tr>");
   }
   document.write("/table");
   return "";
