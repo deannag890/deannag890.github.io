@@ -9,6 +9,7 @@
   <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js" integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css>"
   <script src="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js></script>"
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css />"
   <script src="javascript/secret_keys.js"></script>
   <title> Deanna Gonzalez </title>
   <!-- All styling for this HTML document are contained in this external css file -->
@@ -60,28 +61,57 @@
     <script>
     var mymap = L.map('mapid');
   //  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {maxZoom: 18, id: 'mapbox/dark-v10', accessToken: mapbox_access_token}).addTo(mymap);
-      L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {}).addTo(mymap);
-      var marker=L.marker([51.5, -0.09]).addTo(mymap);
-      var circle=L.circle([51.508, -0.11], {color: 'red', fillColor:'#f03', fillOpacity: 0.5, radius: 500}).addTo(mymap);
-      var polygon=L.polygon([[51.509, -0.08], [51.503, -0.06], [51.51, -0.047]]).addTo(mymap);
-      marker.bindPopup("<b>Hello World!</b><br>I am a popup.").openPopup();
-      circle.bindPopup("I am a circle.");
-      polygon.bindPopup("I am a polygon.");
-      marker.on('click', function(e){ mymap.setView(e.latlng, 14);})
-      circle.on('click', function(e){ mymap.setView(e.latlng, 13);})
-      polygon.on('click', function(e){ mymap.setView(e.latlng, 13);})
-      var ZoomViewer=L.Control.extend({ onAdd: function(){
-        var gauge=L.DomUtil.create('div');
-        gauge.style.width='200px';
-        gauge.style.background='rgba(255,255,255,0.5)';
-        gauge.style.textAlign='left';
-        mymap.on('zoomstart zoom zoomend', function(ev){
-          gauge.innerHTML='Zoom Level: ' + mymap.getZoom();
-        })
-        return gauge;
-      }
-    });
-    (new ZoomViewer).addTo(mymap);
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {}).addTo(mymap);
+    var tajMajal=L.marker([27.174961, 78.042385]).addTo(mymap);
+    var greatWall=L.marker([40.334245, 116.477652]).addTo(mymap);
+    var petra=L.marker([30.328611, 35.441944]).addTo(mymap);
+    var christRedeemer=L.marker([-22.951389, -43.2108334]).addTo(mymap);
+    var machuPichu=L.marker([-13.163056, -72.545556]).addTo(mymap);
+    var chichenItzaPyrmaid=L.marker([20.682778, -88.569167]);
+    var romanCollosseum=L.marker([41.890169, 12.492269]).addTo(mymao);
+    tajMajal.bindPopup("<b>India's Taj Majal</b><br><img src="images\TajMajalimg.jpg" width: "250"><p>The Taj Majal is a mausoleum in India made of Ivory-white marble. It is a famous landmark known for its granduer beauty and ancient history.</p>").openPopup();
+    greatWall.bindPopup("<b>The Great Wall of China</b><br><img src="images\GreatWall.jpg" width: "250"><p>The Great Wall of China is comprised of a series of fortifications that run 13, 170 miles. It is rich in history, neing built in the seventh century by the Ming Dynasty to protect its northern borders.</p>").openPopup();
+    petra.bindPopup("<b>Petra, Jordan</b><br><img src="images\PetraJordan.jpg" width: "250"><p>The city of Petra, Jordan is ancient and composed of ancient red sandstone.</p>").openPopup();
+    christRedeemer.bindPopup("<b>Christ the Redeemer Statue</b><br><img src="images\RedeemerStatueBrazil.jpg" width: "250"><p>The statue of Christ the Redeemer is a grabd monument of Jesus Christ, located on top of Mount Corcovado in Rio de Janeiro, Brazil. It is 30 meters tall.</p>").openPopup();
+    machuPichu.bindPopup("<b>Machu Pichu</b><br><img src="images\MachuPichu.jpg" width: "250"><p>Machu Pich is an ancient citadel in Peru.</p>").openPopup();
+    chichenItzaPyrmaid.bindPopup("<b>The Chichen Itza Pyramid</b><br><img src="images\MachuPichu.jpg" width: "250"><p>The Chichen Itza Pyramid is an ancient Pyramid located in Mexico built by the Mayans.</p>").openPopup();
+    romanCollosseum.bindPopup("<b>The Colosseum</b><br><img src="images\RomanCollosseum.jpg" width: "250"><p>The Collosseum is located in Rome, Italy. It is an ancient arena used by the Romans to host gladiator fights, which was a source of entertainment back then.</p>").openPopup();
+  // L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {}).addTo(mymap);
+  //    var geocoder=L.Control.geocoder({
+  //      defaultMarkGeocode: false,
+  //      geocoder: new L.Control.Geocoder.Nominatim()
+  //    }).on('markgeocode', function(e) {
+  //      var bbox=e.geocode.bbox;
+  //      var poly=L.polygon([
+  //        bbox.getSouthEast(),
+  //        bbox.getNorthEast(),
+  //        bbox.getNorthWest(),
+  //        bbox.getSouthWest(),
+  //      ]);
+  //      mymap.fitBounds(poly.getBounds());
+  //    }).addTo(mymap);
+    //  var marker=L.marker([51.5, -0.09]).addTo(mymap);
+    //  var circle=L.circle([51.508, -0.11], {color: 'red', fillColor:'#f03', fillOpacity: 0.5, radius: 500}).addTo(mymap);
+    //  var polygon=L.polygon([[51.509, -0.08], [51.503, -0.06], [51.51, -0.047]]).addTo(mymap);
+    //  var polyline=L.polyline([51.506, -0.08], [51.502, -0.06], [51.507, -0.047]).addTo(mymap);
+    //  marker.bindPopup("<b>Hello World!</b><br>I am a popup.").openPopup();
+    //    circle.bindPopup("I am a circle.");
+    //  polygon.bindPopup("I am a polygon.");
+    //  marker.on('click', function(e){ mymap.setView(e.latlng, 14);})
+    //  circle.on('click', function(e){ mymap.setView(e.latlng, 13);})
+    //  polygon.on('click', function(e){ mymap.setView(e.latlng, 13);})
+    //  var ZoomViewer=L.Control.extend({ onAdd: function(){
+    //  var gauge=L.DomUtil.create('div');
+    //   gauge.style.width='200px';
+    //  gauge.style.background='rgba(255,255,255,0.5)';
+    //  gauge.style.textAlign='left';
+    //  mymap.on('zoomstart zoom zoomend', function(ev){
+    //    gauge.innerHTML='Zoom Level: ' + mymap.getZoom();
+    //  })
+    //  return gauge;
+    //  }
+    //  });
+    //  (new ZoomViewer).addTo(mymap);
     mymap.setView([0,0], 1);
     </script>
   </div>
