@@ -55,6 +55,12 @@
         zoom: 10,
         center: [-118.2095, 34.0866]
       });
+
+      view.on("click", eventHandler);
+      function eventHandler(event){
+        console.log("You just triggered a 'click' event!"); alert("You just triggered a 'click' event!");
+      }
+
     )};
   </script>
 </head>
