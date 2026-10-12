@@ -10,6 +10,7 @@ var webmaps =
   ["Campus Map of Texas State University", "https://map.concept3d.com/?id=308#!ct/18453,19314,49975?s/",
 "This map is very simple, efficient, and straight-forward."]
 ];
+
 function welcome()
 {
   let a = "Please enter your name.";
@@ -19,24 +20,31 @@ function welcome()
   message = "<h1>Hello, welcome to my webpage, " + user_name + "!</h1>"
   return message
 }
+
 function webmap_table()
 {
   document.write("<table width=100%>");
-  for (var row=0; row < webmaps.length; row++)
-  {
-    document.write("<tr>");
-    for (var column=0; column < webmaps[0].length; column++)
+    for (var row=0; row < webmaps.length; row++)
     {
-      if (row % 2 == 0)
+      document.write("<tr>");
+
+      if (row % 2==0)
       {
-      document.write("<td>" + webmaps[0][1] + "</td>");
+        for (var column=0; column < webmaps[0].length; column++)
+        {
+          document.write("<td>" + webmaps[row][column] + "</td>");
+        }
+      }
+      else
+      {
+        document.write(
+          "<td colspan='2' class='webmap-description'>" +
+          webmaps[row][0] +
+          "</td>"
+        );
+      }
+      document.write("</tr>");
     }
-    else
-    {
-      document.write("<td>" + webmaps[1][0] + "</td">);
-    }
-    document.write("</tr>");
-  }
-  document.write("/table");
-  return "";
+    document.write("</table>");
+    return "";
 }
