@@ -1,14 +1,28 @@
 /*var user_name = window.prompt("Please enter your name", "Type your name here");
 document.write(user_name);
 document.getElementByID("Welcome").innerHTML = "Hello, Welcome" + user_name + */
-var webmaps =
-[
-  ["Interactive Map of Galveston Island State Park Trails", "https://tpwd.texas.gov/spdest/parkinfo/maps/gis/galveston_island/",
-"Map of Kayak and hiking trails developed by Texas Parks and Wildlife.",]
-  ["Bike routes in Austin, TX", "https://austin.maps.arcgis.com/apps/webappviewer/index.html?id=c7fecf32a2d946fabdf062285d58d40c",
-"Highly detailed and informative bike route map of Austin's Metroolitian area",]
-  ["Campus Map of Texas State University", "https://map.concept3d.com/?id=308#!ct/18453,19314,49975?s/",
-"This map is very simple, efficient, and straight-forward."]
+var webmaps = [
+  [
+    "Oil Spill Toolkit",
+    "https://www.glo.texas.gov"
+  ],
+  [
+    "The Oil Spill Toolkit developed by Enterprise Technology Solutions of the Texas General Land Office is a decision-support resource.<br>" +
+    "This is my second sentence about the Oil Spill Toolkit.<br>" +
+    "This is my third sentence about the Oil Spill Toolkit.<br>" +
+    "This is my fourth sentence about the Oil Spill Toolkit."
+  ],
+  [
+    "Texas Ecosystems Analytical Mapper",
+    "http://tpwd.texas.gov/gis/team/"
+  ],
+
+  [
+    "The Texas Parks and Wildlife's Landscape Ecology program developed this application to deliver ecological mapping data to Texas citizens.<br>" +
+    "This is my second sentence about the Texas Ecosystems Analytical Mapper.<br>" +
+    "This is my third sentence about the Texas Ecosystems Analytical Mapper.<br>" +
+    "This is my fourth sentence about the Texas Ecosystems Analytical Mapper."
+  ]
 ];
 
 function welcome()
