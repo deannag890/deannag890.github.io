@@ -70,14 +70,15 @@
     var machuPichu=L.marker([-13.163056, -72.545556]).addTo(mymap);
     var chichenItzaPyrmaid=L.marker([20.682778, -88.569167]);
     var romanCollosseum=L.marker([41.890169, 12.492269]).addTo(mymao);
-    tajMajal.bindPopup('<b>India's Taj Majal</b><br><img src="images\TajMajalimg.jpg" width: "250"><p>The Taj Majal is a mausoleum in India made of Ivory-white marble. It is a famous landmark known for its granduer beauty and ancient history.</p>').openPopup();
-    greatWall.bindPopup('<b>The Great Wall of China</b><br><img src="images\GreatWall.jpg" width: "250"><p>The Great Wall of China is comprised of a series of fortifications that run 13, 170 miles. It is rich in history, neing built in the seventh century by the Ming Dynasty to protect its northern borders.</p>').openPopup();
+    tajMajal.bindPopup('<b>Indias Taj Majal</b><br><img src="images\TajMajalimg.jpg" width: "250"><p>The Taj Majal is a mausoleum in India made of Ivory-white marble. It is a famous landmark known for its granduer beauty and ancient history.</p>');
+    greatWall.bindPopup('<b>The Great Wall of China</b><br><img src="images\GreatWall.jpg" width: "250"><p>The Great Wall of China is comprised of a series of fortifications that run 13, 170 miles. It is rich in history, neing built in the seventh century by the Ming Dynasty to protect its northern borders.</p>');
     petra.bindPopup('<b>Petra, Jordan</b><br><img src="images\PetraJordan.jpg" width: "250"><p>The city of Petra, Jordan is ancient and composed of ancient red sandstone.</p>').openPopup();
-    christRedeemer.bindPopup('<b>Christ the Redeemer Statue</b><br><img src="images\RedeemerStatueBrazil.jpg" width: "250"><p>The statue of Christ the Redeemer is a grabd monument of Jesus Christ, located on top of Mount Corcovado in Rio de Janeiro, Brazil. It is 30 meters tall.</p>').openPopup();
-    machuPichu.bindPopup('<b>Machu Pichu</b><br><img src="images\MachuPichu.jpg" width: "250"><p>Machu Pich is an ancient citadel in Peru.</p>').openPopup();
-    chichenItzaPyrmaid.bindPopup('<b>The Chichen Itza Pyramid</b><br><img src="images\MachuPichu.jpg" width: "250"><p>The Chichen Itza Pyramid is an ancient Pyramid located in Mexico built by the Mayans.</p>').openPopup();
-    romanCollosseum.bindPopup('<b>The Colosseum</b><br><img src="images\RomanCollosseum.jpg" width: "250"><p>The Collosseum is located in Rome, Italy. It is an ancient arena used by the Romans to host gladiator fights, which was a source of entertainment back then.</p>').openPopup();
-  // L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {}).addTo(mymap);
+    christRedeemer.bindPopup('<b>Christ the Redeemer Statue</b><br><img src="images\RedeemerStatueBrazil.jpg" width: "250"><p>The statue of Christ the Redeemer is a grabd monument of Jesus Christ, located on top of Mount Corcovado in Rio de Janeiro, Brazil. It is 30 meters tall.</p>');
+    machuPichu.bindPopup('<b>Machu Pichu</b><br><img src="images\MachuPichu.jpg" width: "250"><p>Machu Pich is an ancient citadel in Peru.</p>');
+    chichenItzaPyrmaid.bindPopup('<b>The Chichen Itza Pyramid</b><br><img src="images\MachuPichu.jpg" width: "250"><p>The Chichen Itza Pyramid is an ancient Pyramid located in Mexico built by the Mayans.</p>');
+    romanCollosseum.bindPopup('<b>The Colosseum</b><br><img src="images\RomanCollosseum.jpg" width: "250"><p>The Collosseum is located in Rome, Italy. It is an ancient arena used by the Romans to host gladiator fights, which was a source of entertainment back then.</p>');
+
+  /* // L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {}).addTo(mymap);
   //    var geocoder=L.Control.geocoder({
   //      defaultMarkGeocode: false,
   //      geocoder: new L.Control.Geocoder.Nominatim()
@@ -108,12 +109,11 @@
     //  gauge.style.textAlign='left';
     //  mymap.on('zoomstart zoom zoomend', function(ev){
     //    gauge.innerHTML='Zoom Level: ' + mymap.getZoom();
-    //  })
-    //  return gauge;
-    //  }
-    //  });
-    //  (new ZoomViewer).addTo(mymap);
-    mymap.setView([0,0], 1);
-    </script>
+    // })
+      return gauge;
+     }
+      (new ZoomViewer).addTo(mymap);
+    mymap.setView([0,0], 1); */
+  </script>
   </div>
 </html>
