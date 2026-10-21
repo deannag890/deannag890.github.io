@@ -14,7 +14,7 @@
       width: 100%; }
   </style>
   <script>
-    require(["esri/Map", "esri/view/MapView", "esri/layers/TileLayer", "esri/layers/MapImageLayer", "esri/widgets/BasemapGallery"], function (Map, MapView, TileLayer, MapImageLayer, BasemapGallery)
+    require(["esri/Map", "esri/views/MapView", "esri/layers/TileLayer", "esri/layers/MapImageLayer", "esri/widgets/BasemapGallery"], function (Map, MapView, TileLayer, MapImageLayer, BasemapGallery)
     {
       var CitiesRenderer = {
         type: "simple",
@@ -60,7 +60,7 @@
         view: view
       });
       view.ui.add(BasemapGallery, {position: "top-right"});
-      
+
       view.on("click", eventHandler);
       function eventHandler(event){
         console.log("You just triggered a 'click' event!"); alert("You just triggered a 'click' event!");
