@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content = "initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <title> Colarado Soils </title>
+  <link rel = "stylesheet" href = "https://js.arcgis.com/4.21/esri/themes/light/main.css"/>
+  <script src = "https://js.arcgis.com/4.21/"> </script>
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;}
+    #optionsDiv{
+      background-color: dimgray;
+      color: white;
+      padding: 10px;
+      width: 350px;
+    }
+    .esri-popup .esri-popup-header .esri-title {
+      font-size: 18px;
+      font-weight: bolder;
+    }
+    .esri-popup .esri-popup-body .esri-popup-content {
+      font-size: 14px;
+    }
+</style>
+<script>
+  require(["esri/Map", "esri/views/MapView", "esri/layers/TileLayer","esri/layers/GraphicsLayer","esri/tasks/QueryTask","esri/tasks/support/Query","esri/Graphic","esri/widgets/Legend"],
+  function(  Map, MapView, TileLayer, GraphicsLayer, QueryTask, Query, Graphic, Legend) {
+
+    var SoilMapLayer = new TileLayer({
+      url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/ColoradoSoilsTileLayer/MapServer"
+    });
+
+    var Map = new Map({
+      basemap: "topo-vector",
+      layers: [SoilMapLayer]
+    });
+
+    var View = new MapView ({
+      container: "viewDiv",
+      map: map,
+      zoom: 5,
+      center: [-105.4, 39.0]
+    });
+
+    var Legend = new Legend({
+      view: view
+    view.ui.add(legend, "bottom-right");
+
+    var QueryTask = new QueryTask({
+        url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/ColoradoSoilsFeatureLayer/FeatureServer/0"
+      });
+
+    var soilSelect= dom.byID("soilSelect");
+    var resultsDiv= dom.byID("printResults");
+  dom.byID('pageSelect') {
+    addEventListener("click", function () {
+      var symbol = soilSelect.value;
+      if (symbol === "") {
+        window.open(this.value, "_blank");
+         this.value = "";
+      }
+  });
+
+  dom.byID("searchButton")
+        .addEventListener("click", function () {
+          var symbol = soilSelect.value;
+          if (symbol === "") {
+            resultsDiv.textContent =
+              "Please choose a soil map unit symbol first.";
+            return;
+          }
+      resultsLayer.removeAll();
+      var safeSymbol = symbol.replace(/'/g, "''");
+      resultsDiv.textContent = "Searching soil polygons...";
+
+          queryTask.execute(query).then(function (response) {
+
+            const features = response.features;
+
+            if (features.length === 0) {
+              resultsDiv.textContent =
+                "No polygons found for symbol " + symbol + ".";
+              return;
+            }
+
+            // Highlight each returned polygon in yellow.
+            features.forEach(function (feature) {
+
+        var graphic = new Graphic({
+                geometry: feature.geometry,
+                attributes: feature.attributes,
+
+                symbol: {
+                  type: "simple-fill",
+                  color: [255, 220, 0, 0.45],
+                  outline: {
+                    color: [180, 100, 0, 1],
+                    width: 1.5
+                  }
+                },
+                popupTemplate: {
+                  title: "Soil Map Unit: {MUSYM}",
+                  content:
+                    "<b>Map unit symbol:</b> {MUSYM}<br>" + "<b>Map unit key:</b> {MUKEY}<br>" + "<b>Survey area:</b> {AREASYMBOL}"
+                }
+              });
+
+              resultsLayer.add(graphic);
+            });
+
+            resultsDiv.textContent =
+              features.length + " polygon(s) found for symbol " +
+              symbol + ". The map is zooming to the results.";
+
+            view.goTo(features).catch(function (error) {
+              if (error.name !== "AbortError") {
+                console.error("Navigation error:", error);
+              }
+            });
+
+          }).catch(function (error) {
+            console.error("Soil query failed:", error);
+
+            resultsDiv.textContent =
+              "The search failed. Check your internet connection " +
+              "and the browser console.";
+          });
+        });
+
+      // Remove highlighted polygons and return to the overall view.
+      dom.byId("clearButton")
+        .addEventListener("click", function () {
+          resultsLayer.removeAll();
+          resultsDiv.textContent =
+            "Highlights cleared. Choose another soil symbol.";
+          view.goTo({
+            center: [-105.5, 39.0],
+            zoom: 5
+          });
+        });
+    });
+  </script>
+</head>
+<body>
+  <div id="viewDiv"></div>
+  <div class= "esri-widget" class="optionsDiv">
+    <h2>Colorado Soil Explorer</h2>
+    <<label for="soilSelect">Choose a map unit symbol:</label>
+    <select id="soilSelect">
+      <option value="">Choose a soil symbol...</option>
+      <option value="128">128</option>
+      <option value="129">129</option>
+      <option value="130">130</option>
+      <option value="GR4">GR4</option>
+      <option value="GR5">GR5</option>
+      <option value="GR6">GR6</option>
+    </select>
+    <div id="printResults">
+     Select a soil symbol to search the dataset.
+   </div>
+
+  <!-- Navigation dropdown for the six lab files -->
+  <div id="optionsDiv" class="esri-widget">
+    <h3>Web Mapping Lab 7</h3>
+
+    <label for="pageSelect">Open another lab exercise:</label>
+    <select id="pageSelect">
+      <option value="">Choose a page...</option>
+      <option value="simple_mapping.html">Simple Mapping</option>
+      <option value="tile_layer.html">Tile Layers</option>
+      <option value="dynamic_layers.html">Dynamic Layers</option>
+      <option value="on_event.html">View on Event</option>
+      <option value="basemap_gallery.html">Basemap Gallery</option>
+      <option value="query_task.html">Query Task</option>
+    </select>
+  <!-- Copyright and data attribution -->
+  <div id="footerDiv">
+    Soil data: USDA NRCS, gSSURGO Colorado (2023) |
+    Basemap: Esri
+  </div>
+</body>
+</html>
