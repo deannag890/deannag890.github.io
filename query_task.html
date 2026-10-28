@@ -61,10 +61,15 @@
           url: "https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer"
         });
 
+        var resultsLayer = new GraphicsLayer();
+        var qTask = new QueryTask({ url: popUrl });
+        var params = new Query({ returnGeometry: true, outFields: ["*"] });
+
         var map = new Map({
           basemap: "oceans",
           layers: [TransportationLayer, CitiesLayer, resultsLayer]
         });
+
         var view = new MapView({
           container: "viewDiv",
           map: map,
@@ -136,9 +141,6 @@
         content: "<b>Population:" + "</b> {Population} " + "<br><b>Households:</b> {Household}" + "<br><b>Latitude:</b>
       {Latitude}" + "<br><b>Longitude:</b> {Longitude}"
       };
-      var resultsLayer = new GraphicsLayer();
-      var qTask = new QueryTask({ url: popUrl });
-      var params = new Query({ returnGeometry: true, outFields: ["*"] });
 });
   </script>
 </head>
