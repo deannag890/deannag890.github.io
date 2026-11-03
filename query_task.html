@@ -14,7 +14,7 @@
     width: 100%;
   }
 
-  #optionsDiv{
+  #optionsDiv {
     background-color: dimgray;
     color: white;
     padding: 10px;
@@ -25,14 +25,14 @@
     font-size: 18px;
     font-weight: bolder;
   }
-
   .esri-popup .esri-popup-body .esri-popup-content {
     font-size: 14px;
   }
   </style>
   <script>
-    require(["esri/Map", "esri/views/MapView", "esri/layers/TileLayer", "esri/layers/MapImageLayer", "esri/widgets/BasemapGallery", "esri/layers/GraphicsLayer", "esri/tasks/QueryTask", "esri/tasks/support/Query", "dojo/_base/array", "dojo/dom", "dojo/on", "dojo/domReady!"],
-    function (Map, MapView, TileLayer, MapImageLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, arrayUtils, dom, on) {
+    require(["esri/Map", "esri/views/MapView", "esri/layers/TileLayer", "esri/layers/MapImageLayer", "esri/widgets/BasemapGallery", "esri/layers/GraphicsLayer","esri/tasks/QueryTask", "esri/tasks/support/Query","dojo/_base/array", "dojo/dom", "dojo/on", "dojo/domReady!"],
+    function
+(Map, MapView, TileLayer, MapImageLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, arrayUtils, dom, on) {
         var CitiesRenderer = {
           type: "simple",
           symbol: {
@@ -61,15 +61,10 @@
           url: "https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer"
         });
 
-        var resultsLayer = new GraphicsLayer();
-        var qTask = new QueryTask({ url: popUrl });
-        var params = new Query({ returnGeometry: true, outFields: ["*"] });
-
         var map = new Map({
           basemap: "oceans",
-          layers: [TransportationLayer, CitiesLayer, resultsLayer]
+          layers: [TransportationLayer, CitiesLayer]
         });
-
         var view = new MapView({
           container: "viewDiv",
           map: map,
@@ -103,30 +98,29 @@
             }
           );
           resultsLayer.addMany(popResults);
-                  view.goTo(popResults).then(function(){
-                    view.popup.open({
-                      features: popResults,
-                      featureMenuOpen: true,
-                      updateLocationEnabled: true
-                    });
-                  });
-                  dom.byId("printResults").innerHTML = popResults.length + " results found!";
-                };
-                function promiseRejected(error){
-                  console.error("Promise rejected: ", error.message," Parameter values: ", attributeName.value,
-                  expressionSign.value, value.value);
-                }
-
-        var popUrl = "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/CaliforniaCities/FeatureServer/0";
-        var popupTemplate = {
-          title: "{City}",
-          fieldInfos:[
-            {
-              fieldName: "Population",
-              label: "Population",
-              format: {
-                places: 0,
-                digitSeperator: true
+          view.goTo(popResults).then(function(){
+            view.popup.open({
+              features: popResults,
+              featureMenuOpen: true,
+              updateLocationEnabled: true
+            });
+        });
+        dom.byId("printResults").innerHTML = popResults.length + " results found!";
+      };
+      function promiseRejected(error){
+        console.error("Promise rejected: ", error.message," Parameter values: ", attributeName.value,
+        expressionSign.value, value.value);
+      }
+      var popUrl = "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/CaliforniaCities/FeatureServer/0";
+      var popupTemplate = {
+        title: "{City}",
+        fieldInfos:[
+          {
+            fieldName: "Population",
+            label: "Population",
+            format: {
+              places: 0,
+              digitSeperator: true
             }
           },
           {
@@ -139,9 +133,12 @@
           }
         ],
         content: "<b>Population:" + "</b> {Population} " + "<br><b>Households:</b> {Household}" + "<br><b>Latitude:</b>
-      {Latitude}" + "<br><b>Longitude:</b> {Longitude}"
+        {Latitude}" + "<br><b>Longitude:</b> {Longitude}"
       };
-});
+      var resultsLayer = new GraphicsLayer();
+      var qTask = new QueryTask({ url: popUrl });
+      var params = new Query({ returnGeometry: true, outFields: ["*"] });
+    });
   </script>
 </head>
 <body>
