@@ -3,7 +3,7 @@ document.write(user_name);
 document.getElementByID("Welcome").innerHTML = "Hello, Welcome" + user_name + */
 var webmaps = [
   [
-    "Galveston Islad State Park",
+    "Galveston Island State Park",
     "https://tpwd.texas.gov/spdest/parkinfo/maps/gis/galveston_island/"
   ],
   [
