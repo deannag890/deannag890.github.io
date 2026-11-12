@@ -3,25 +3,25 @@ document.write(user_name);
 document.getElementByID("Welcome").innerHTML = "Hello, Welcome" + user_name + */
 var webmaps = [
   [
-    "Oil Spill Toolkit",
-    "https://www.glo.texas.gov"
+    "Galveston Islad State Park",
+    "https://tpwd.texas.gov/spdest/parkinfo/maps/gis/galveston_island/"
   ],
   [
-    "The Oil Spill Toolkit developed by Enterprise Technology Solutions of the Texas General Land Office is a decision-support resource.<br>" +
-    "This is my second sentence about the Oil Spill Toolkit.<br>" +
-    "This is my third sentence about the Oil Spill Toolkit.<br>" +
-    "This is my fourth sentence about the Oil Spill Toolkit."
+    "This map shows the public kayak and walking trails at Galveston Island Park in Galveston, TX.<br>" +
+    "The stengths of this map are its simplicity and familiarity.<br>" +
+    "Although its simplicity is a strength, I think it is too simple and could benefit from more elaboration.<br>" +
+    "The interface is very easy to manage and doesn’t need much interpretation, as it is very direct and not too detailed."
   ],
   [
-    "Texas Ecosystems Analytical Mapper",
-    "http://tpwd.texas.gov/gis/team/"
+    "Austin Bike Routes Web Map",
+    "https://austin.maps.arcgis.com/apps/webappviewer/index.html?id=c7fecf32a2d946fabdf062285d58d40c"
   ],
 
   [
-    "The Texas Parks and Wildlife's Landscape Ecology program developed this application to deliver ecological mapping data to Texas citizens.<br>" +
-    "This is my second sentence about the Texas Ecosystems Analytical Mapper.<br>" +
-    "This is my third sentence about the Texas Ecosystems Analytical Mapper.<br>" +
-    "This is my fourth sentence about the Texas Ecosystems Analytical Mapper."
+    "This map displays all bike paths in the big, populous city of Austin and rank them from high comfort to low comfort based on convenience and safety. .<br>" +
+    "Its strengths are that it is direct and highly detailed, making it concise and informative.<br>" +
+    "The application was designed for Austin citizens who bike regularly.<br>" +
+    "The application is very easy to navigate. It’s very straightforward. If I were to redesign it, I would change the colors to make them more distinctive, especially the lines in the same comfort category."
   ]
 ];
 
